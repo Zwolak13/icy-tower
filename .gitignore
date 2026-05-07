@@ -1,0 +1,4 @@
+.claude/
+scores.json
+__pycache__/
+*.pyc
