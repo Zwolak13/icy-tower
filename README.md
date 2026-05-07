@@ -13,21 +13,30 @@ Inspired by the old-school Icy Tower game I played as a kid — one of those gam
 
 ## Scoring
 
-Highest floor reached is your score. Type in your name after a run and it saves to the top-10 leaderboard on the title screen.
+Highest floor reached is your score. Type in your name after a run and it saves to the top-10 leaderboard, shown on the title screen.
 
 ## Project Structure
 
 ```
 icy-tower/
-├── main.py                 # Entry point — pygame init, event loop, 60 FPS clock
-├── scores.json             # Leaderboard data (auto-created on first save)
+├── main.py                        # Entry point — pygame init, event loop, 60 FPS clock
+├── scores.json                    # Leaderboard data (auto-created on first save)
 └── game/
-    ├── constants.py        # Physics values, colors, state flags, 10 visual themes
-    ├── fonts.py            # Font registry (all Courier New, various sizes)
-    ├── game.py             # Game class — state machine, physics update, all rendering
-    ├── leaderboard.py      # Load/save scores.json
-    ├── platform.py         # Platform class + procedural platform generator
-    └── player.py           # Player class — movement state, pixel-art character drawing
+    ├── constants.py               # Physics values, colors, state flags, 10 visual themes
+    ├── fonts.py                   # Font registry
+    ├── leaderboard.py             # Load/save scores.json
+    ├── game.py                    # Game class — state machine + update loop (orchestrator)
+    ├── entities/
+    │   ├── player.py              # Player state and physics data
+    │   └── platform.py            # Platform data
+    ├── generate/
+    │   ├── platforms.py           # Procedural platform generation
+    │   └── background.py          # Background gradients and snow particles
+    └── draw/
+        ├── player.py              # Player rendering
+        ├── platform.py            # Platform rendering
+        ├── hud.py                 # HUD and wall rendering
+        └── screens.py             # Title screen and game over screen
 ```
 
 ## Requirements
